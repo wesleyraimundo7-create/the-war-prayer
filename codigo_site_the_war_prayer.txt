@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The War Prayer — A Oração pela Guerra, de Mark Twain. Tradução de Emelly de Oliveira Santos Feitosa e Wesley da Silva Raimundo.">
+  <meta name="theme-color" content="#090909">
+  <title>The War Prayer — A Oração pela Guerra</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+    :root{--bg:#090909;--panel:#121212;--panel2:#191716;--ink:#eee9e1;--muted:#aaa39a;--red:#7d252b;--line:#302b29;--gold:#c6ad8a;--reading:19px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .progress{position:fixed;z-index:30;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#6e1e25,#c6ad8a)}
+    header{position:fixed;z-index:20;top:3px;left:0;right:0;background:rgba(9,9,9,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+    .nav{max-width:1180px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;letter-spacing:.12em;font-weight:600}
+    .brand span{color:var(--gold)}
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#c9c2b9;transition:.2s}
+    nav a:hover{color:var(--gold)}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:7px 11px}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:130px 24px 90px;background:
+      radial-gradient(ellipse at 75% 48%,rgba(115,34,38,.23),transparent 35%),
+      linear-gradient(90deg,rgba(5,5,5,.97) 0%,rgba(5,5,5,.83) 55%,rgba(5,5,5,.45) 100%),
+      repeating-linear-gradient(115deg,transparent 0 70px,rgba(255,255,255,.018) 71px 72px),
+      #111}
+    .hero:after{content:"";position:absolute;right:-8%;top:8%;width:58vw;height:85%;opacity:.32;background:radial-gradient(ellipse at 50% 45%,transparent 25%,#050505 72%),linear-gradient(150deg,transparent 25%,rgba(117,32,38,.24),transparent 70%);filter:blur(18px);pointer-events:none}
+    .hero-inner{max-width:1180px;width:100%;margin:auto;position:relative;z-index:1}
+    .eyebrow{color:var(--gold);font-size:11px;letter-spacing:.32em;text-transform:uppercase}
+    h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
+    h1{font-size:clamp(64px,11vw,142px);line-height:.82;letter-spacing:.015em;margin:25px 0 18px;font-weight:500;max-width:900px}
+    h1 span{display:block;color:#b9ada0;font-size:.52em;line-height:1.1;margin-top:20px;font-style:italic}
+    .author{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#c5bdb3;margin:28px 0 10px}
+    .byline{color:var(--muted);font-size:13px;max-width:540px}
+    .hero-quote{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,31px);font-style:italic;line-height:1.25;max-width:650px;margin:38px 0;color:#ded5ca}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border:1px solid #8c3037;background:#76252c;color:#fff;font-size:11px;letter-spacing:.13em;text-transform:uppercase;transition:.25s}
+    .btn:hover{background:#96333b;transform:translateY(-2px)}
+    .btn.secondary{background:transparent;border-color:#625950;color:#e4ddd4}
+    .btn.secondary:hover{border-color:var(--gold);color:var(--gold)}
+    .hero-mark{position:absolute;right:8%;bottom:9%;font-family:'Cormorant Garamond',serif;font-size:clamp(120px,24vw,340px);line-height:.8;color:rgba(255,255,255,.025);font-weight:700;pointer-events:none}
+    main{overflow:hidden}
+    .section{max-width:1060px;margin:auto;padding:105px 24px}
+    .section-kicker{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+    h2{font-size:clamp(42px,6vw,68px);font-weight:500;line-height:1;margin:12px 0 28px}
+    h3{font-size:30px;font-weight:500;margin:0 0 10px}
+    .lead{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;line-height:1.4;color:#d8cec2;max-width:800px}
+    .body-copy{max-width:760px;color:#bdb6ad}
+    .divider{height:1px;background:linear-gradient(90deg,var(--red),var(--line),transparent);margin:30px 0}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:start}
+    .fact-card{background:linear-gradient(145deg,#191716,#0f0f0f);border:1px solid var(--line);padding:27px}
+    .fact{padding:12px 0;border-bottom:1px solid var(--line)}
+    .fact:last-child{border:0}
+    .fact small{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.15em}
+    .fact strong{font-weight:500;color:#e9e2d8}
+    .author-band{background:linear-gradient(110deg,#171313,#0d0d0d);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .author-layout{display:grid;grid-template-columns:170px 1fr;gap:34px;align-items:center}
+    .portrait-placeholder{aspect-ratio:3/4;border:1px solid #4b3a34;background:radial-gradient(ellipse at 50% 35%,#6c5b50,#211d1a 60%,#0c0c0c);display:flex;align-items:center;justify-content:center;color:#d2c1ae;font-family:'Cormorant Garamond',serif;font-size:56px}
+    .reading-shell{background:#111;border:1px solid #302a27;padding:clamp(22px,5vw,58px);box-shadow:0 25px 80px rgba(0,0,0,.25)}
+    .reading-head{text-align:center;border-bottom:1px solid var(--line);padding-bottom:30px;margin-bottom:30px}
+    .reading-head h2{font-size:clamp(34px,5vw,54px);margin:10px 0}
+    .reading-head p{color:var(--muted);font-size:12px}
+    .reader-tools{display:flex;justify-content:flex-end;gap:8px;margin-bottom:22px}
+    .reader-tools button{background:#1b1918;color:#ddd;border:1px solid #49413c;padding:7px 12px;cursor:pointer}
+    .reader-tools button:hover{border-color:var(--gold)}
+    .translation{font-family:'Cormorant Garamond',Georgia,serif;font-size:var(--reading);line-height:1.78;color:#e2dbd1}
+    .translation p{margin:0 0 25px;text-indent:2em}
+    .translation p:nth-last-child(2),.translation p:last-child{ text-indent:0 }
+    .translation p:last-child{font-style:italic;color:#c9bba9}
+    .reader-note{font-size:11px;color:#8f877e;text-align:center;margin-top:28px}
+    .analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .analysis-card{border:1px solid var(--line);background:linear-gradient(145deg,#171514,#0d0d0d);padding:26px;min-height:190px}
+    .analysis-card .number{font-family:'Cormorant Garamond',serif;color:#8b3438;font-size:38px}
+    .analysis-card p{color:#aaa39a;font-size:14px;margin-bottom:0}
+    blockquote{margin:42px 0 0;padding:10px 0 10px 25px;border-left:2px solid var(--red);font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:#d9cfc3}
+    .reference{border:1px solid var(--line);background:#111;padding:25px;color:#c9c1b7;line-height:1.9}
+    .credits{background:#0d0d0d;border-top:1px solid var(--line)}
+    .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+    .credits p{color:#aaa39a;margin:5px 0}
+    footer{padding:35px 24px;text-align:center;border-top:1px solid var(--line);color:#817970;font-size:11px;letter-spacing:.08em}
+    footer .closing{font-family:'Cormorant Garamond',serif;font-size:24px;color:#cfc4b8;font-style:italic;letter-spacing:0;margin-bottom:12px}
+    .backtop{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border:1px solid #57413d;background:#171313;color:#eee;display:none;cursor:pointer}
+    @media(max-width:800px){nav{display:none;position:absolute;top:57px;left:0;right:0;background:#101010;padding:20px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.menu-btn{display:block}.about-grid{grid-template-columns:1fr;gap:25px}.author-layout{grid-template-columns:100px 1fr;gap:20px}.analysis-grid{grid-template-columns:1fr}.section{padding:78px 20px}.hero{min-height:90vh}.credits-grid{grid-template-columns:1fr}}
+    @media(max-width:480px){.nav{padding:12px 17px}.brand{font-size:20px}.hero{padding-left:20px;padding-right:20px}.author-layout{grid-template-columns:1fr}.portrait-placeholder{max-width:125px}.reading-shell{padding:20px 16px}.translation{font-size:18px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#inicio">THE <span>WAR</span> PRAYER</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">MENU</button>
+      <nav id="nav">
+        <a href="#sobre">A obra</a><a href="#autor">Autor</a><a href="#traducao">Tradução</a><a href="#analise">Análise</a><a href="#referencias">Referências</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="eyebrow">Uma obra de Mark Twain · Tradução literária</div>
+      <h1>THE WAR<span>PRAYER</span><span>A Oração pela Guerra</span></h1>
+      <div class="author">MARK TWAIN</div>
+      <p class="byline">Tradução de Emelly de Oliveira Santos Feitosa e Wesley da Silva Raimundo</p>
+      <p class="hero-quote">“Quando pedimos pela vitória, também podemos estar pedindo pela destruição de outros.”</p>
+      <div class="actions">
+        <a class="btn" href="#traducao">Começar leitura <span aria-hidden="true">&nbsp;↘</span></a>
+        <a class="btn secondary" href="#sobre">Conheça a obra</a>
+      </div>
+    </div>
+    <div class="hero-mark" aria-hidden="true">✳</div>
+  </section>
+
+  <main>
+    <section class="section" id="sobre">
+      <div class="section-kicker">01 / Contexto</div>
+      <div class="about-grid">
+        <div>
+          <h2>Sobre a obra</h2>
+          <p class="lead">Uma oração pela vitória pode esconder um pedido de sofrimento para aqueles que estão do outro lado.</p>
+          <div class="divider"></div>
+          <p class="body-copy">Em <em>The War Prayer</em>, Mark Twain constrói uma narrativa satírica em torno de uma comunidade tomada pelo fervor patriótico durante um período de guerra. Em meio a discursos e orações que pedem proteção e vitória para os soldados, a chegada de um desconhecido revela as consequências que permanecem ocultas nesse pedido.</p>
+          <p class="body-copy">A obra provoca uma reflexão sobre a guerra, o nacionalismo e a contradição entre os valores religiosos proclamados e a violência que uma vitória militar pode produzir.</p>
+        </div>
+        <aside class="fact-card">
+          <div class="fact"><small>Título original</small><strong><em>The War Prayer</em></strong></div>
+          <div class="fact"><small>Título em português</small><strong>A Oração pela Guerra</strong></div>
+          <div class="fact"><small>Autor</small><strong>Mark Twain</strong></div>
+          <div class="fact"><small>Gênero / abordagem</small><strong>Sátira e crítica social</strong></div>
+          <div class="fact"><small>Tradução</small><strong>Emelly de Oliveira Santos Feitosa e Wesley da Silva Raimundo</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="author-band" id="autor">
+      <div class="section">
+        <div class="section-kicker">02 / Escritor</div>
+        <div class="author-layout">
+          <div class="portrait-placeholder" aria-label="Monograma literário MT">MT</div>
+          <div>
+            <h2>Mark Twain</h2>
+            <p class="body-copy">Mark Twain é o nome literário de Samuel Langhorne Clemens (1835–1910), escritor norte-americano conhecido por sua contribuição à literatura e por seu olhar crítico sobre a sociedade. Sua escrita frequentemente recorre ao humor, à ironia e à sátira para questionar costumes, instituições e contradições humanas.</p>
+            <p class="body-copy">Em <em>The War Prayer</em>, essa abordagem assume um tom especialmente contundente ao expor o custo humano escondido por trás da retórica patriótica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="traducao">
+      <div class="section-kicker">03 / Texto traduzido</div>
+      <h2>A tradução</h2>
+      <p class="body-copy">Leia a versão em português apresentada neste trabalho. A organização abaixo preserva a sequência narrativa e o conteúdo textual extraído do PDF enviado.</p>
+      <div class="reading-shell">
+        <div class="reading-head">
+          <div class="section-kicker">Mark Twain</div>
+          <h2>A Oração pela Guerra</h2>
+          <p>Tradução: Emelly de Oliveira Santos Feitosa e Wesley da Silva Raimundo</p>
+        </div>
+        <div class="reader-tools" aria-label="Controles de leitura">
+          <button id="smaller" type="button" aria-label="Diminuir fonte">A−</button>
+          <button id="larger" type="button" aria-label="Aumentar fonte">A+</button>
+          <button id="resetFont" type="button" aria-label="Restaurar fonte">Restaurar</button>
+        </div>
+        <article class="translation" id="translation">
+          <p class="translation-paragraph">Era uma época de grande e exaltante fervor. O país estava em pé de guerra, a guerra estava em progresso, e em cada peito ardia o fogo sagrado do patriotismo; em sintonia a expectativa os tambores rufavam, as bandas tocavam, as pistolas de brinquedo estalavam, o estouro dos fogos de artifício chiavam e crepitavam por toda parte; e ao longe, nas fileiras de telhados e varandas que se afastavam e desapareciam no horizonte, uma selva tremula em bandeiras reluzia ao sol; diariamente, os jovens voluntários desfilavam em marcha através da ampla avenida, alegres e elegantes em seus novos uniformes, enquanto os orgulhosos pais, mães, irmãs e namoradas os aplaudiam com as gargantas apertadas pela emoção e felicidade à medida que passavam; todas as noites, as lotadas reuniões populares ouviam, ofegantes, os discursos patrióticos que agitavam profundamente o mais íntimo de seus corações e que elas interrompiam em breves intervalos com aplausos estrondosos, enquanto lágrimas escorriam por suas bochechas; nas igrejas, os pastores pregavam a devoção à bandeira e à pátria e invocavam o Deus das Batalhas, implorando por Sua cumplicidade em nossa honrada causa, em uma torrente de manifestação feroz e fervorosa que comovia e doutrinava todos os ouvintes.</p>
+<p class="translation-paragraph">Foi, de fato, um momento alegre e favorável, e a meia dúzia de espíritos temerários que se aventuraram a desaprovar a guerra e a reivindicar o absurdo da dúvida de sua justa causa receberam imediatamente uma advertência tão severa e irada que, em favor de sua própria segurança, rapidamente se esconderam e não voltaram a cometer tamanha ofensa.</p>
+<p class="translation-paragraph">E no dia seguinte chegou a manhã de domingo, os batalhões estavam partindo para a frente de batalha; a igreja estava lotada e os voluntários estavam lá, com os rostos iluminados pela glória dos sonhos materialistas, as visões de um avanço inflexível, o impulso crescente, a investida furiosa, as armas reluzentes, a partida do inimigo, o tumulto, a fumaça que tudo envolvia, a perseguição impiedosa, a rendição!</p>
+<p class="translation-paragraph">E então, de volta da guerra, os heróis bronzeados, abraçados, adorados e submersos em mares coroados de glória! Ao lado dos soldados voluntários estavam seus entes queridos, orgulhosos, felizes e invejados pelos vizinhos e amigos que não tinham filhos nem irmãos para enviar ao campo de honra, a fim de lá vencer pela bandeira ou, caso falhassem, morrer a mais nobre das mortes.</p>
+<p class="translation-paragraph">A cerimônia prosseguiu; foi lido um capítulo do Antigo Testamento sobre a guerra; a primeira oração foi proclamada, seguida por uma explosão de som que sacudiu o prédio, e, num único impulso, a assembleia se levantou, com olhos brilhantes e corações acelerados, e emitiu aquela invocação tremenda — “Deus, o Todo-Poderoso! Tu que ordenas: Troveja com tua trombeta e reluz com tua espada!”</p>
+<p class="translation-paragraph">Então veio a “longa” oração. Ninguém conseguia se lembrar de algo semelhante em termos de súplica devota e de linguagem comovente e sublime. O fardo de sua súplica era que um Pai de todos nós, sempre misericordioso e benevolente, cuidasse de nossos nobres jovens soldados e os ajudasse, consolasse e os dessem coragem em sua obra patriótica; os abençoasse, os protegesse com Sua mão poderosa, os tornassem fortes e confiantes, invencíveis no sangrento combate; os ajudasse a esmagar o inimigo, concedesse a eles, à sua bandeira e ao seu país honra e glória eternas —</p>
+<p class="translation-paragraph">Um idoso desconhecido entrou e avançou com passos lentos e silenciosos pelo corredor central, com os olhos fixos no pastor; seu corpo alto estava envolto em uma túnica que lhe chegava aos pés; a cabeça estava descoberta, e seus cabelos brancos desciam como água corrente e espumante até os ombros; seu rosto marcado era pálido em um aspecto anormal, pálido a ponto de parecer medonho. E com todos os olhos voltados para ele e cheios de curiosidade, ele seguiu seu caminho em silêncio; sem parar, subiu até ao lado do pregador e ficou ali, esperando. Com olhos fechados, e o pregador, sem perceber sua presença, continuou sua impiedosa oração e, por fim, concluiu-a com as palavras, proferidas em fervorosa súplica: “Abençoai nossas armas, concede-nos a vitória, ó Senhor nosso Deus, Pai e Protetor de nossa terra e de nossa bandeira!”</p>
+<p class="translation-paragraph">O desconhecido tocou seu braço, fez um gesto para que ele se afastasse — o que o pastor, surpreso, fez — e tomou seu lugar. Por alguns instantes, ele observou a plateia hipnotizada com olhos atentos nos quais brilhava uma luz quase sobrenatural; então, com voz grave, disse:</p>
+<p class="translation-paragraph">“Venho do Trono trazendo uma mensagem do Deus Todo-Poderoso!” As palavras estremeceram a casa como um choque, e se o estranho percebeu isso, não deu importância. “Ele ouviu a oração de Seu servo, o seu pastor, e a concederá, se tal for o seu desejo, depois que eu, Seu mensageiro, tiver explicado a vocês o seu significado — isto é, todo o seu significado. Pois é semelhante a muitas das orações dos homens, na medida em que pede mais do que aquele que a pronuncia está ciente — a menos que ele pare para refletir. “O servo de Deus e seus servos fizeram sua oração. Será que pararam para refletir? É uma única oração? Não, são duas — uma explícita, e a outra não. Ambas chegaram aos ouvidos Daquele que ouve todas as súplicas, as ditas e as não ditas. Pensem sobre isso e guardem isso em mente. Se vocês implorarem por uma bênção para si mesmos, tomem cuidado! Para que, sem querer, não invoquem uma maldição sobre um próximo ao mesmo tempo. Se orarem pedindo a bênção da chuva para sua colheita, que precisa dela, com esse ato vocês podem estar, sem querer, orando por uma maldição sobre a colheita de algum próximo que talvez não precise de chuva e possa ser prejudicada por ela. “Vocês ouviram a oração de seu servo — a parte explícita dela. Fui encarregado por Deus de expressar em palavras a outra parte dela — aquela parte que o pastor, e também vocês em seus corações, oraram fervorosamente em silêncio. E por ignorância e sem pensar? Que Deus permita que tenha sido assim! Vocês ouviram estas palavras: ‘Conceda-nos a vitória, ó Senhor nosso Deus!’ Isso é suficiente. Toda a oração proferida está explícita nessas palavras significativas. Não foram necessárias explicações adicionais. Ao orarem pela vitória, vocês oraram por muitos resultados não mencionados que são consequência da vitória — que devem segui-la, que não podem deixar de segui-la. Sobre o espírito atento de Deus, o Pai, foi compreendida também a parte não evidente da oração. Ele me ordena que a coloque em palavras. Ouçam! &quot;Ó Senhor, nosso Pai, nossos jovens patriotas, ídolos de nossos corações, partem para a batalha — esteja ao lado deles! Com eles, em espírito, também partimos da doce paz de nossas amadas lareiras para destruir o inimigo. Ó Senhor, nosso Deus, ajuda-nos a despedaçar os soldados inimigos em pedaços ensanguentados com nossos bombardeios; ajuda-nos a cobrir seus campos verdes e sorridentes com os corpos frios de seus patriotas mortos; ajuda-nos a abafar o estrondo dos canhões com os gritos dos seus feridos, contorcendo-se de dor; ajuda-nos a devastar suas humildes casas com um furacão de fogo; ajuda-nos a dilacerar os corações de suas viúvas inocentes com uma dor inútil; ajude-nos a deixá-los sem teto, com seus filhinhos, para vagarem sem amizade pelas terras devastadas de sua pátria desolada, em trapos, com fome e sede, à mercê das chamas do sol do verão e dos ventos gelados do inverno, de espírito exaustos e desgastados pelo sofrimento, implorando a Ti pelo refúgio da sepultura e tendo-o negado — por nossa causa que Te adoramos, Senhor, destrua suas esperanças, arruíne suas vidas, e prolongue a amargura de suas jornadas, tornem insustentáveis seus passos, regue seu caminho e seus campos verdes com suas lágrimas, manche a neve branca com um lençol do sangue de seus pés feridos! Pedimos isso, no espírito do amor, Àquele que é a Fonte do Amor e que é o refúgio e amigo sempre fiel de todos os que estão em grande aflição e buscam Sua ajuda com corações humildes e contritos. Amém. (Após uma pausa)</p>
+<p class="translation-paragraph">“Vocês já pediram por isso; se ainda assim o desejam, falem e afirmem seus desejos! O mensageiro do Altíssimo aguarda.”</p>
+<p class="translation-paragraph">Mais tarde, acreditou-se que o homem era louco, pois não havia sentido compreensível e nem favorável no que ele disse.</p>
+        </article>
+        <p class="reader-note">Fim da tradução apresentada no documento acadêmico.</p>
+      </div>
+    </section>
+
+    <section class="section" id="analise">
+      <div class="section-kicker">04 / Leitura crítica</div>
+      <h2>Temas para reflexão</h2>
+      <p class="body-copy">A narrativa articula diferentes formas de crítica social. Estes eixos ajudam a observar como o texto constrói sua ironia.</p>
+      <div class="analysis-grid">
+        <article class="analysis-card"><div class="number">01</div><h3>Patriotismo e nacionalismo</h3><p>A comunidade transforma a guerra em motivo de orgulho coletivo, enquanto vozes contrárias são silenciadas.</p></article>
+        <article class="analysis-card"><div class="number">02</div><h3>Religião e guerra</h3><p>A oração apresenta a contradição entre pedir proteção para uns e ignorar a violência destinada a outros.</p></article>
+        <article class="analysis-card"><div class="number">03</div><h3>O sentido oculto</h3><p>O mensageiro revela que pedir a vitória também implica aceitar suas consequências para os inimigos e suas famílias.</p></article>
+        <article class="analysis-card"><div class="number">04</div><h3>Ironia e sátira</h3><p>O contraste entre a linguagem devota e as consequências brutais da guerra expõe a hipocrisia e a falta de reflexão.</p></article>
+      </div>
+      <blockquote>“É uma única oração? Não, são duas — uma explícita, e a outra não.”</blockquote>
+    </section>
+
+    <section class="section" id="referencias">
+      <div class="section-kicker">05 / Fonte bibliográfica</div>
+      <h2>Referências</h2>
+      <div class="reference">
+        TWAIN, Mark. The War Prayer. In: TWAIN, Mark. <em>Europe and Elsewhere</em>. New York: Harper &amp; Brothers, 1923.
+      </div>
+      <p class="body-copy" style="font-size:12px;margin-top:12px">Créditos da tradução: Emelly de Oliveira Santos Feitosa e Wesley da Silva Raimundo.</p>
+      <p class="body-copy" style="font-size:12px">Nota: os dados bibliográficos devem ser conferidos com a edição efetivamente consultada antes da entrega acadêmica.</p>
+    </section>
+
+    <section class="credits" id="creditos">
+      <div class="section">
+        <div class="section-kicker">06 / Identificação acadêmica</div>
+        <h2>Créditos</h2>
+        <div class="credits-grid">
+          <div>
+            <h3>Universidade Estadual da Paraíba</h3>
+            <p>UEPB — FALLA</p>
+            <p>Faculdade de Linguística, Letras e Artes</p>
+            <p>Curso de Licenciatura em Letras — Língua Inglesa</p>
+          </div>
+          <div>
+            <h3>Trabalho de tradução</h3>
+            <p><strong>Docente:</strong> Marília Bezerra Cacho</p>
+            <p><strong>Discentes:</strong> Emelly de Oliveira Santos Feitosa e Wesley da Silva Raimundo</p>
+            <p>Campina Grande — PB · 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="closing">“A guerra revela aquilo que as palavras, muitas vezes, tentam esconder.”</div>
+    THE WAR PRAYER · MARK TWAIN · TRADUÇÃO EM PORTUGUÊS · UEPB · 2026
+  </footer>
+  <button class="backtop" id="backtop" aria-label="Voltar ao topo">↑</button>
+  <script>
+    const progress=document.getElementById('progress');
+    const backtop=document.getElementById('backtop');
+    window.addEventListener('scroll',()=>{
+      const max=document.documentElement.scrollHeight-window.innerHeight;
+      progress.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+      backtop.style.display=window.scrollY>500?'block':'none';
+    });
+    backtop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    const nav=document.getElementById('nav');
+    document.getElementById('menuBtn').addEventListener('click',()=>nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+    let fontSize=19;
+    const setFont=()=>document.documentElement.style.setProperty('--reading',fontSize+'px');
+    document.getElementById('smaller').addEventListener('click',()=>{fontSize=Math.max(16,fontSize-1);setFont()});
+    document.getElementById('larger').addEventListener('click',()=>{fontSize=Math.min(27,fontSize+1);setFont()});
+    document.getElementById('resetFont').addEventListener('click',()=>{fontSize=19;setFont()});
+  </script>
+</body>
+</html>
